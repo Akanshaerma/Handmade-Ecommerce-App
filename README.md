@@ -1,8 +1,6 @@
-# README
+# Handmade E-Commerce App
 
-[Epsy](https://myepsy.herokuapp.com)
----
-Epsy, an Etsy clone, is a global online marketplace where people come togetehr to make, sell, buy and collect unique items.
+A global online marketplace built with Ruby on Rails and React where users can discover, buy, and sell unique items.
 
 Here is an image of the homepage:
 <img src="https://user-images.githubusercontent.com/47359683/64884297-f1fdf600-d693-11e9-84f5-a4b7fd92b6bf.png"/>
@@ -16,26 +14,10 @@ Here is an image of the homepage:
   <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
 </ul>
 
-<h2>Deployment</h2>
-Hosted on <a href="https://myepsy.herokuapp.com">Heroku</a>
-
-<h2>Getting started</h2>
-Refer to the <a href="https://github.com/chinweenie/Full-Stack-Project-Etsy/wiki">wiki</a> for more details of this project!
-
 <h2>Installation</h2>
 Start installation
-
-```
-git clone https://github.com/chinweenie/Full-Stack-Project-Etsy.git
-cd Full-Stack-Project-Etsy
-bundle install
-npm install
-bundle exec rails s
-npm run webpack
-```
 <h2>Technical details</h2>
-The navbar shows different button when a user is logged in. The implementation of this involves a check on whether there is a
-session id.
+The navbar shows different buttons when a user is logged in. The implementation of this involves a check on whether there is a session id.
 
 ```javascript
 const mapStateToProps = state => {
@@ -53,11 +35,6 @@ const mapStateToProps = state => {
     }
   
 };
-```
-
-Also, if a user adds a product(which has already been added before) into the cart, the create action automatically update the quantity of the cart item instead of creating a new cart item with the same product id. The create and update action also checks if the cart item quantity is still within the maximum quantity allowed (based of the availability of the product). 
-
-```ruby
 def create
         if check_current_cart(product_id, quantity)
             @cart_item = CartItem.find_by(product_id: product_id, user_id: current_user.id)
@@ -113,19 +90,3 @@ def create
         end
         
     end
-
-```
-
-<h2>Author</h2>
-Winnie Chin
-
-<h2>Acknowledgments</h2>
-Thank you Andy for providing me user feedbacks throughout the project development.
-
-
-
-
-
-
-
-
