@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: handmade-ecommerce-app
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: handmade-db
+          property: connectionString
+
+databases:
+  - name: handmade-db
+    databaseName: handmade_ecommerce
+    user: handmade_user
